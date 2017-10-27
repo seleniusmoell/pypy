@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+#This script is written by tove in Python 3.0
+
+__author__ = "tove"
+__copyright__ = "Copyright 2017"
+__email__ = "seleniusmoell@gmail.com"
