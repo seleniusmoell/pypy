@@ -7,12 +7,12 @@ def interestCalc(investment, interest, term):
 	return sum
 	
 investment = input("What is the investment? ")
-interest = input("What is the yearly interest? ")
+interest = input("What is the yearly interest (in percent)? ")
 term = input("Over how many years? ")
 
 result = interestCalc(investment, interest, term)
 
-print "The investment will grow to " + str(result)
+print ("The investment will grow to " + str(result))
 
 
 	
