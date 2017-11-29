@@ -7,19 +7,37 @@ __email__ = "seleniusmoell@gmail.com"
 
 field = ""
 id = ""
-file = open('tpadm.h', r)
+enum = "public enum Ezx_FieldId \n {"
 
-for line in file:
-	if("#define" in line) {
-		splitted = line.split()
-		if (len(splitted) > 2){
-			field = splitted[1]
-			id = splitted[2]
+def addToCsharp(field, id, enum):
+	enum = enum + field + ' = ' + id + '\n'
+	return enum
+
+with open('tpadm.h', 'r') as file:
+#	print('opened file')
+	
+	for line in file:
+		if("#define" in line) :
+	
+			splitted = line.split()
+			if (len(splitted) > 2):
+				field = splitted[1]
+				id = splitted[2]
+				
+				if ( 'FLDID' in splitted[2]):
+					#tvätta
+					id = splitted[2].split(')')[1]
+					
+			#	print('Field: ' + field + ', id: ' + id)
+				enum = addToCsharp(field, id, enum);
 			
-			if ( 'FLDID' in splitted[2]){
-				#tvätta
-			}
-			addToCsharp(field, id);
-		}
-			
+
+enum = enum + '}'			
+
+with open('enum.cs', 'w') as outfile:
+	outfile.write(enum)
+	
+
+
+
 	
