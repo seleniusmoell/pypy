@@ -23,7 +23,3 @@ for line in file:
 		}
 			
 	
-
-
-
-addToCsharp
